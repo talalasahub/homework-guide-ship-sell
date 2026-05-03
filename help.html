@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل استخدام دليل الواجب</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #2ecc71;
+            --dark-green: #27ae60;
+            --light-green: #d5f5e3;
+            --white: #ffffff;
+            --soft-white: #f0f7f0;
+            --warning-yellow: #fff3cd;
+            --warning-border: #ffc107;
+            --error-red: #e74c3c;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.2);
+            border: 2px solid var(--primary-green);
+        }
+        h1 {
+            color: var(--dark-green);
+            text-align: center;
+            font-size: 3rem;
+            margin-top: 0;
+        }
+        .lang-tabs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .lang-btn {
+            padding: 15px 30px;
+            border: none;
+            background: var(--light-green);
+            border-radius: 50px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            border: 2px solid var(--primary-green);
+            font-weight: bold;
+            color: var(--dark-green);
+            transition: 0.2s;
+        }
+        .lang-btn.active {
+            background: var(--primary-green);
+            color: white;
+            border-color: var(--dark-green);
+        }
+        .help-content {
+            display: none;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            background: var(--soft-white);
+            padding: 30px;
+            border-radius: 40px;
+            border: 2px solid var(--primary-green);
+        }
+        .help-content.active {
+            display: block;
+        }
+        .step {
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--light-green);
+            border-right: 8px solid var(--primary-green);
+            border-radius: 30px;
+        }
+        .step h3 {
+            color: var(--dark-green);
+            margin-top: 0;
+        }
+        .note {
+            background: var(--warning-yellow);
+            padding: 15px;
+            border-radius: 30px;
+            border-right: 8px solid var(--warning-border);
+        }
+        .api-image {
+            background: #eee;
+            padding: 20px;
+            text-align: center;
+            border-radius: 30px;
+            font-family: monospace;
+            font-size: 1.3rem;
+            direction: ltr;
+            color: var(--text-dark);
+        }
+        a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .footer a {
+            background: var(--light-green);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            border: 2px solid var(--primary-green);
+            transition: 0.2s;
+        }
+        .footer a:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="helpTitle">📘 دليل استخدام دليل الواجب</h1>
+        
+        <!-- أزرار اختيار اللغة -->
+        <div class="lang-tabs">
+            <button class="lang-btn active" data-lang="ar">🇸🇦 العربية</button>
+            <button class="lang-btn" data-lang="en">🇬🇧 English</button>
+            <button class="lang-btn" data-lang="uk">🇺🇦 Українська</button>
+            <button class="lang-btn" data-lang="sq">🇦🇱 Shqip</button>
+        </div>
+
+        <!-- المحتوى حسب اللغة -->
+        <div id="content-ar" class="help-content active">
+            <h2>👋 مرحباً بالأهل الكرام</h2>
+            <p>هذا الدليل سيساعدكم على تجهيز تطبيق "دليل الواجب" لأطفالكم. التطبيق مجاني ويعمل عبر الذكاء الاصطناعي، ولكن يحتاج إلى مفتاح API من Google ليعمل. لا تقلقوا، الأمر بسيط!</p>
+            
+            <div class="step">
+                <h3>🔑 الخطوة 1: الحصول على مفتاح API مجاني من Google</h3>
+                <p>1. اذهبوا إلى موقع <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.</p>
+                <p>2. سجلوا الدخول بحساب Google (يمكنكم إنشاء حساب مجاني إذا لم يكن لديكم).</p>
+                <p>3. اضغطوا على زر <strong>"Create API Key"</strong> (إنشاء مفتاح API).</p>
+                <p>4. سيظهر لكم مفتاح طويل مثل: <code>AIzaSyBmXyP7...</code>. انسخوه.</p>
+                <div class="api-image">🔑 مثال: AIzaSyAoAd5BjCY3SPAhQlOduNezucJ-Wz9LV2E</div>
+                <p>🔒 هذا المفتاح مجاني ويتيح 60 طلباً في الدقيقة، وهو كافٍ تماماً للاستخدام العائلي.</p>
+            </div>
+
+            <div class="step">
+                <h3>⚙️ الخطوة 2: إدخال المفتاح في التطبيق</h3>
+                <p>1. افتحوا التطبيق عبر الرابط الذي وصلكم.</p>
+                <p>2. في أعلى الصفحة، بجانب العنوان، ستجدون أيقونة ترس <i class="fas fa-cog"></i>. اضغطوا عليها.</p>
+                <p>3. ستظهر لوحة الإعدادات. في الحقل الأول، الصقوا المفتاح الذي نسختموه.</p>
+                <p>4. يمكنكم ترك باقي الإعدادات كما هي (نموذج Gemini 2.5 Flash هو الأنسب).</p>
+                <p>5. اضغطوا على الترس مرة أخرى لإخفاء اللوحة (اختياري).</p>
+                <p>✅ الآن التطبيق جاهز للاستخدام!</p>
+            </div>
+
+            <div class="step">
+                <h3>🧒🏻 كيفية استخدام الطفل للتطبيق</h3>
+                <p>1. يختار الطفل اللغة المناسبة من القائمة المنسدلة في الأعلى (بجانب الترس).</p>
+                <p>2. يكتب سؤاله في المربع الكبير (مثلاً: "كيف أحسب مساحة المستطيل؟") أو يضغط على "اختر صورة" لتصوير المسألة من الكتاب.</p>
+                <p>3. يضغط على زر "🔍 ابدأ المحادثة".</p>
+                <p>4. سيظهر رد المدرس الذكي مع تلميحات. الطفل يحاول الإجابة، ويكتب إجابته في الحقل السفلي ثم يضغط "إرسال".</p>
+                <p>5. تستمر المحادثة حتى يصل الطفل إلى الحل الصحيح. عندها ستظهر شخصية كرتونية لطيفة مع رسالة تشجيعية (مثل: "أحسنت! اشرب الماء").</p>
+                <p>6. يمكن البدء بسؤال جديد بالضغط على "🔄 بداية جديدة".</p>
+            </div>
+
+            <div class="note">
+                <i class="fas fa-lightbulb"></i> <strong>ملاحظة:</strong> عداد الرصيد الموجود في لوحة الإعدادات يساعدكم على متابعة عدد الطلبات المتبقية في الدقيقة (الحد الأقصى 60). هذا مجرد تقدير محلي، لكنه مفيد لتنظيم الاستخدام.
+            </div>
+        </div>
+
+        <!-- English version -->
+        <div id="content-en" class="help-content">
+            <h2>👋 Hello dear parents</h2>
+            <p>This guide will help you set up the "Homework Guide" app for your children. The app is free and uses AI, but it requires a free API key from Google. Don't worry, it's simple!</p>
+            
+            <div class="step">
+                <h3>🔑 Step 1: Get a free API key from Google</h3>
+                <p>1. Go to <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.</p>
+                <p>2. Sign in with your Google account (you can create a free account if you don't have one).</p>
+                <p>3. Click <strong>"Create API Key"</strong>.</p>
+                <p>4. You'll see a long key like: <code>AIzaSyBmXyP7...</code>. Copy it.</p>
+                <div class="api-image">🔑 Example: AIzaSyAoAd5BjCY3SPAhQlOduNezucJ-Wz9LV2E</div>
+                <p>🔒 This key is free and allows 60 requests per minute, which is enough for family use.</p>
+            </div>
+
+            <div class="step">
+                <h3>⚙️ Step 2: Enter the key in the app</h3>
+                <p>1. Open the app via the link you received.</p>
+                <p>2. At the top, next to the title, you'll find a gear icon <i class="fas fa-cog"></i>. Click it.</p>
+                <p>3. The settings panel will appear. Paste your key into the first field.</p>
+                <p>4. You can leave other settings as they are (Gemini 2.5 Flash is recommended).</p>
+                <p>5. Click the gear again to hide the panel (optional).</p>
+                <p>✅ Now the app is ready to use!</p>
+            </div>
+
+            <div class="step">
+                <h3>🧒🏻 How your child can use the app</h3>
+                <p>1. The child selects their language from the dropdown menu at the top (next to the gear).</p>
+                <p>2. They type their question in the big box (e.g., "How do I calculate the area of a rectangle?") or click "Choose file" to take a picture of the problem.</p>
+                <p>3. They press the "🔍 Start conversation" button.</p>
+                <p>4. The AI teacher will respond with hints. The child tries to answer, types their answer in the bottom field, and clicks "Send".</p>
+                <p>5. The conversation continues until the child reaches the correct answer. Then a cute cartoon character appears with an encouraging message (like "Great job! Drink water").</p>
+                <p>6. They can start a new question by pressing "🔄 New start".</p>
+            </div>
+
+            <div class="note">
+                <i class="fas fa-lightbulb"></i> <strong>Note:</strong> The credit counter in the settings panel helps you track how many requests are left in the current minute (max 60). This is a local estimate, but it's useful for managing usage.
+            </div>
+        </div>
+
+        <!-- Ukrainian version -->
+        <div id="content-uk" class="help-content">
+            <h2>👋 Вітаємо, шановні батьки</h2>
+            <p>Цей посібник допоможе вам налаштувати додаток "Довідник з домашніх завдань" для ваших дітей. Додаток безкоштовний і використовує ШІ, але для роботи потрібен безкоштовний ключ API від Google. Не хвилюйтеся, це просто!</p>
+            
+            <div class="step">
+                <h3>🔑 Крок 1: Отримайте безкоштовний ключ API від Google</h3>
+                <p>1. Перейдіть на сайт <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.</p>
+                <p>2. Увійдіть у свій обліковий запис Google (можна створити безкоштовний, якщо його немає).</p>
+                <p>3. Натисніть <strong>"Create API Key"</strong> (Створити ключ API).</p>
+                <p>4. Ви побачите довгий ключ, наприклад: <code>AIzaSyBmXyP7...</code>. Скопіюйте його.</p>
+                <div class="api-image">🔑 Приклад: AIzaSyAoAd5BjCY3SPAhQlOduNezucJ-Wz9LV2E</div>
+                <p>🔒 Цей ключ безкоштовний і дозволяє 60 запитів на хвилину, чого достатньо для сімейного використання.</p>
+            </div>
+
+            <div class="step">
+                <h3>⚙️ Крок 2: Введіть ключ у додаток</h3>
+                <p>1. Відкрийте додаток за отриманим посиланням.</p>
+                <p>2. Вгорі, поруч із заголовком, ви знайдете значок шестірні <i class="fas fa-cog"></i>. Натисніть його.</p>
+                <p>3. З'явиться панель налаштувань. Вставте ваш ключ у перше поле.</p>
+                <p>4. Інші налаштування можна залишити як є (рекомендується Gemini 2.5 Flash).</p>
+                <p>5. Натисніть шестірню знову, щоб приховати панель (не обов'язково).</p>
+                <p>✅ Тепер додаток готовий до використання!</p>
+            </div>
+
+            <div class="step">
+                <h3>🧒🏻 Як дитина може користуватися додатком</h3>
+                <p>1. Дитина обирає мову зі списку вгорі (біля шестірні).</p>
+                <p>2. Вона вводить своє запитання у велике поле (наприклад, "Як обчислити площу прямокутника?") або натискає "Вибрати файл", щоб сфотографувати завдання.</p>
+                <p>3. Натискає кнопку "🔍 Почати розмову".</p>
+                <p>4. Учитель-ШІ відповідає підказками. Дитина намагається відповісти, вводить свою відповідь у нижнє поле та натискає "Надіслати".</p>
+                <p>5. Розмова триває, поки дитина не дійде до правильної відповіді. Тоді з'являється милий мультяшний персонаж із підбадьорливим повідомленням (наприклад, "Молодець! Випий води").</p>
+                <p>6. Можна почати нове питання, натиснувши "🔄 Новий початок".</p>
+            </div>
+
+            <div class="note">
+                <i class="fas fa-lightbulb"></i> <strong>Примітка:</strong> Лічильник кредитів на панелі налаштувань допомагає відстежувати, скільки запитів залишилося в поточну хвилину (максимум 60). Це локальна оцінка, але вона корисна для контролю використання.
+            </div>
+        </div>
+
+        <!-- Albanian version -->
+        <div id="content-sq" class="help-content">
+            <h2>👋 Përshëndetje prindër të dashur</h2>
+            <p>Ky udhëzues do t'ju ndihmojë të vendosni aplikacionin "Udhëzuesi i Detyrave" për fëmijët tuaj. Aplikacioni është falas dhe përdor AI, por kërkon një çelës API falas nga Google. Mos u shqetësoni, është e thjeshtë!</p>
+            
+            <div class="step">
+                <h3>🔑 Hapi 1: Merrni një çelës API falas nga Google</h3>
+                <p>1. Shkoni te <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a>.</p>
+                <p>2. Hyni me llogarinë tuaj Google (mund të krijoni një llogari falas nëse nuk e keni).</p>
+                <p>3. Klikoni <strong>"Create API Key"</strong> (Krijo çelës API).</p>
+                <p>4. Do të shihni një çelës të gjatë si: <code>AIzaSyBmXyP7...</code>. Kopjojeni.</p>
+                <div class="api-image">🔑 Shembull: AIzaSyAoAd5BjCY3SPAhQlOduNezucJ-Wz9LV2E</div>
+                <p>🔒 Ky çelës është falas dhe lejon 60 kërkesa në minutë, mjaftueshëm për përdorim familjar.</p>
+            </div>
+
+            <div class="step">
+                <h3>⚙️ Hapi 2: Vendosni çelësin në aplikacion</h3>
+                <p>1. Hapni aplikacionin përmes linkut që keni marrë.</p>
+                <p>2. Në krye, pranë titullit, do të gjeni një ikonë ingranazhi <i class="fas fa-cog"></i>. Klikoni atë.</p>
+                <p>3. Do të shfaqet paneli i cilësimeve. Ngjitni çelësin tuaj në fushën e parë.</p>
+                <p>4. Cilësimet e tjera mund t'i lini siç janë (Gemini 2.5 Flash rekomandohet).</p>
+                <p>5. Klikoni përsëri ingranazhin për të fshehur panelin (opsionale).</p>
+                <p>✅ Tani aplikacioni është gati për përdorim!</p>
+            </div>
+
+            <div class="step">
+                <h3>🧒🏻 Si ta përdorë fëmija aplikacionin</h3>
+                <p>1. Fëmija zgjedh gjuhën nga menyja në krye (pranë ingranazhit).</p>
+                <p>2. Shkruan pyetjen e tij në kutinë e madhe (p.sh., "Si të llogaris sipërfaqen e drejtkëndëshit?") ose klikon "Zgjidh skedarin" për të fotografuar problemin.</p>
+                <p>3. Klikon butonin "🔍 Fillo bisedën".</p>
+                <p>4. Mësuesi AI përgjigjet me sugjerime. Fëmija përpiqet të përgjigjet, shkruan përgjigjen në fushën e poshtme dhe klikon "Dërgo".</p>
+                <p>5. Biseda vazhdon derisa fëmija të arrijë përgjigjen e saktë. Pastaj shfaqet një personazh vizatimor i lezetshëm me një mesazh inkurajues (p.sh., "Shkëlqyeshëm! Pini ujë").</p>
+                <p>6. Mund të fillojë një pyetje të re duke klikuar "🔄 Fillo përsëri".</p>
+            </div>
+
+            <div class="note">
+                <i class="fas fa-lightbulb"></i> <strong>Shënim:</strong> Numëruesi i kreditit në panelin e cilësimeve ju ndihmon të gjurmoni sa kërkesa kanë mbetur në minutën aktuale (maksimumi 60). Ky është një vlerësim lokal, por është i dobishëm për menaxhimin e përdorimit.
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="index.html" target="_blank">🚀 العودة إلى التطبيق</a>
+        </div>
+    </div>
+
+    <script>
+        // ترجمة العنوان حسب اللغة
+        const translationsTitle = {
+            ar: "📘 دليل استخدام دليل الواجب",
+            en: "📘 Homework Guide User Manual",
+            uk: "📘 Посібник користувача Довідника",
+            sq: "📘 Udhëzues përdorimi i Udhëzuesit të Detyrave"
+        };
+
+        const langButtons = document.querySelectorAll('.lang-btn');
+        const helpTitle = document.getElementById('helpTitle');
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                langButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.help-content').forEach(c => c.classList.remove('active'));
+                document.getElementById(`content-${btn.dataset.lang}`).classList.add('active');
+                // تغيير العنوان الرئيسي
+                helpTitle.textContent = translationsTitle[btn.dataset.lang];
+            });
+        });
+    </script>
+</body>
+</html>
